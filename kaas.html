@@ -2,11 +2,13 @@
 <html lang="en">
   <head>
     <title>Kaas.</title>
+    <link rel="stylesheet" href="kaas.css">
   </head>
   <body>
+  	<div class="wrapper">
     <script>
       //Lucas de Kleijn, Software Developer BOL4. Kaasopdracht.
-      alert("Dit programma gaat raden welke kaas jij bedoelt. Vul 1 in als de uitspraak waar is.");
+      alert("Dit programma gaat raden welke kaas jij bedoelt. Vul 1 in als de uitspraak waar is, 0 als de uitspraak niet waar is.");
       Q1 = prompt("Is de kaas geel?") //The question.
         if (Q1 == 1) { //If the user answered 1 at Question 1, the statement is true and it will continue within the if statement. This applies to all further prompts.
           Q2 = prompt("Zitten er gaten in?")
@@ -15,41 +17,67 @@
                 if (Q3 == 1) {
                   document.write("De kaas die u bedoelt is Emmenthaler.")
                 }
-                else {
+                else if (Q3 == 0) {
                   document.write("De kaas die u bedoelt is Leerdammer.")
                 }
+                else {
+                	Fail();
+                }
             }
-            else {
+            else if (Q2 == 0) {
               Q3 = prompt("Is de kaas hard als steen?")
                 if (Q3 == 1) {
                   document.write("De kaas die u bedoelt is Parmigiano Reggiano.")
                 }
-                else {
+                else if (Q3 == 0){
                   document.write("De kaas die u bedoelt is Goudse Kaas.")
                 }
+                else {
+                	Fail();
+                }
+            }
+            else {
+            	Fail();
             }
         }
-        else { //If the user answered anything else at Question 1, the statement is false and it will continue within the else statement. This also applies to all further prompts.
+        else if (Q1 == 0) { //If the user answered anything else at Question 1, the statement is false and it will continue within the else statement. This also applies to all further prompts.
           Q2 = prompt("Heeft de kaas blauwe schimmels?")
             if (Q2 == 1) {
               Q3 = prompt("Heeft de kaas een korst?")
                 if (Q3 == 1) {
                   document.write("De kaas die u bedoelt is Bleu de Rochbaron.")
                 }
-                else {
+                else if (Q3 == 0) {
                   document.write("De kaas die u bedoelt is Fourme d'Ambert")
                 }
+                else {
+                	Fail();
+                }
             }
-            else {
+            else if (Q2 == 0) {
               Q3 = prompt("Heeft de kaas een korst?")
                 if (Q3 == 1) {
                   document.write("De kaas die u bedoelt is Camembert.")
                 }
-                else {
+                else if (Q3 == 0) {
                   document.write("De kaas die u bedoelt is Mozzarella.")
                 }
+                else {
+                	Fail();
+                }
+            }
+            else {
+            	Fail();
             }
         }
+        else {
+        	Fail();
+        }
+        function Fail() {
+        	alert("Vul AUB 1 of 0 in.")
+        	window.location.href = window.location.href.split( '#' )[0];
+        }
     </script>
+    </div>
   </body>
   </html>
